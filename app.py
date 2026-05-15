@@ -39,10 +39,5 @@ elif sesion == "Sesión 3":
 
 else:
   st.write("Bienvenido la sesión 4")
-
-elif sesion == "Sesión 3":
-  st.write("Bienvenido la sesión 3")
-  
-
 else:
   st.write("Bienvenido la sesión 4")
