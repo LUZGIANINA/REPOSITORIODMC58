@@ -55,7 +55,7 @@ else:
   else: 
     st.write("Cargue el archivo ")
 
-  else:
+else:
   
   st.write("Bienvenido la sesión 4")
   archivo = st.sidebar.file_uploader("Cargue su archivo")
