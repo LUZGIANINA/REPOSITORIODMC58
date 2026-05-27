@@ -1,12 +1,12 @@
 import streamlit as st
 import numpy as np
-import libreria_funciones as lf
+import pandas as pd
 
 st.title("Mi primera aplicación en python")
 
 st.sidebar.title("Parámetros")
 
-st.write("Elaborado por: Luz Garcia")
+st.write("Elaborado por: Carlos Carrillo")
 
 st.sidebar.image("DMC.png")
 
@@ -39,13 +39,35 @@ elif sesion == "Sesión 3":
 
 
 else:
+  
   st.write("Bienvenido la sesión 4")
-  principal = st.number_input("ingrese el monto del prestamo", value=1000)
-  tasa_anual = st.number_input("ingrese la tasa anual en decimal", value=0.1)
-  anios = st.number_input("ingrese el numero de año de prestamol", value=5)
-  pagos_anio = st.number_input("Ingrese la cantidad de pagos por año", value=12)
-   
-  cuota = round(lf.cuota_prestamo(principal,tasa_anual,anios,pagos_anio),2)
-  st.write(f"El valor de la cuota es {cuota}")
+  archivo = st.sidebar.file_uploader("Cargue su archivo")
+  
+  if archivo is not None:
+    
+    if archivo.name.endswith(".csv"):
+      datos = pd.read_csv(archivo)
+    elif archivo.name.endswith(".xlsx"):
+      datos = pd.read_excel(archivo)
+
+    st.write(datos)
+
+  else: 
+    st.write("Cargue el archivo ")
+
+else:
+  
+  st.write("Bienvenido la sesión 4")
+  archivo = st.sidebar.file_uploader("Cargue su archivo")
+  
+  if archivo is not None:
+    
+    if archivo.name.endswith(".csv"):
+      datos = pd.read_csv(archivo)
+    elif archivo.name.endswith(".xlsx"):
+      datos = pd.read_excel(archivo)
+
+    st.write(datos)
+
                               
 
